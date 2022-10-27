@@ -1,0 +1,33 @@
+<!--
+ * @Author: Wangchaoke gxk_wck@163.com
+ * @Date: 2022-10-27 23:15:16
+ * @LastEditors: Wangchaoke gxk_wck@163.com
+ * @LastEditTime: 2022-10-28 00:03:31
+ * @FilePath: /growUp/02vue/vue-study/kvue/03-kvue.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!-- 这个可以作为我们的测试用例来测试简易vue是否可用 -->
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<div id="app">
+    <p>{{counter}}</p>
+    <p k-text="counter" @click="onclick"></p>
+    <p k-html="desc"></p>
+</div>
+<script src="./04-kvue.js"></script>
+<script>
+    const app = new KVue({
+        el: '#app',
+        data: {
+            counter: 1,
+            desc: '<span style="color: red">LemonWang真棒</span>'
+        },
+        methods: {
+            onclick() {
+                this.counter++
+            }
+        },
+    })
+    setInterval(() => {
+        app.counter++
+    }, 1000);
+</script>
