@@ -1,0 +1,35 @@
+<!--
+ * @Author: wangchaoke gxk_wck@163.com
+ * @Date: 2022-11-08 23:09:23
+ * @LastEditors: wangchaoke gxk_wck@163.com
+ * @LastEditTime: 2022-11-08 23:10:51
+ * @FilePath: /growUp/05vue2/vue-study/kvue/05-kvue.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div id="app">{{counter}}</div>
+
+<script src="06-kvue.js"></script>
+<script>
+  const app = new KVue({
+    el: '#app',
+    data: {
+      counter: 1
+    },
+    render(h) {
+      // const div = document.createElement('div')
+      // div.textContent = this.counter
+      // return div
+
+      // return h('div', null, this.counter + '')
+      return h('div', null, [
+        h('p', null, this.counter + ''),
+        h('p', null, this.counter * 2 + ''),
+        h('p', null, this.counter * 3 + ''),
+      ])
+    }
+  })
+  setInterval(() => {
+    app.counter++
+  }, 1000);
+</script>
+Footer
